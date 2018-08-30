@@ -24,9 +24,9 @@ $ npm install (TBD)
 #### Initialization
 ```js
 import Api from "TBD";
-var configuration = {
+const configuration = {
 	port: 30000, 
-    ip: "192.168.1.4" //default
+	ip: "192.168.1.4" //default
 }
 const controller = Api(configuration);
 ```
