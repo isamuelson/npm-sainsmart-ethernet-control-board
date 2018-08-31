@@ -1,6 +1,6 @@
 import Api from "../src/index";
 import { randomState } from "./helper";
-
+import { timeout } from "../src/utils"
 var configuration = {
 	port: 30000,
 	ip: "10.76.55.100"
@@ -36,4 +36,12 @@ const test = async(startTime) => {
 	.then(() => test());
 }
 
+const stateTime = async () => {
+	controller.getState()
+	.then((state) => console.log(state, "live"))
+	.then(await timeout(1000))
+	.then(stateTime);
+}
+
 controller.turnOffAll().then(test);
+stateTime();
